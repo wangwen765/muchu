@@ -51,14 +51,14 @@ function renderIndex(res, name){
 	});
 }
 
-function renderQuery(res,name,phone,weixin,email){
+function renderQuery(res,name){
 	var query = new AV.Query(Visitor);
 	query.skip(0);
 	query.limit(10000);
 	query.descending('createdAt');
 	query.find({
 		success: function(results){
-			res.render('query',{ name: name,phone:phone, weixin:weixin, email:email,visitors: results});
+			res.render('query',{ name: name,phone:phone: results});
 		},
 		error: function(error){
 			console.log(error);
@@ -67,14 +67,14 @@ function renderQuery(res,name,phone,weixin,email){
 	});
 }
 
-function renderSuccess(res,name,phone,weixin,email){
+function renderSuccess(res,name){
 	var query = new AV.Query(Visitor);
 	query.skip(0);
 	query.limit(10000);
 	query.descending('createdAt');
 	query.find({
 		success: function(results){
-			res.render('success',{ name: name,phone:phone, weixin:weixin,email:email,visitors: results});
+			res.render('success',{ name: name,phone:phone: results});
 		},
 		error: function(error){
 			console.log(error);
@@ -129,9 +129,7 @@ function sendTickets(name,phone,start,end,date,backdate,adults,child,email){
 app.get('/query',function(req,res){
 	var name=req.query.name;
 	var phone=req.query.phone;
-	var weixin=req.query.weixin;
-	var email=req.query.email;
-	renderQuery(res,name,phone,weixin,email);
+	renderQuery(res,name,phone);
 });
 
 app.get('/', function(req, res){
@@ -211,30 +209,14 @@ app.post('/ticket',function(req,res){
 app.post('/',function(req, res){
 	var name = req.body.name;
 	var phone=req.body.phone;
-	var weixin=req.body.weixin;
-	var email=req.body.email;
-	var studyStatus=req.body.study;
-	var license=req.body.license;
-	var haveCar=req.body.haveCar;
-	var fulltime=req.body.fulltime;
-	var age=req.body.age;
-	var area=req.body.area;
 	if(name && name.trim() !=''){
 		//Save visitor
 		var visitor = new Visitor();
 		visitor.set('name', name);
 		visitor.set('phone', phone);
-		visitor.set('weixin', weixin);
-		visitor.set('email',email);
-		visitor.set('studyStatus', studyStatus);
-		visitor.set('license', license);
-		visitor.set('haveCar', haveCar);
-		visitor.set('fulltime', fulltime);
-		visitor.set('age',age);
-		visitor.set('area',area);
 		visitor.save(null, {
 			success: function(gameScore) {
-				renderSuccess(res,name,phone,weixin,email);
+				renderSuccess(res,name);
 			},
 			error: function(gameScore, error) {
 				res.render('500', 500);
