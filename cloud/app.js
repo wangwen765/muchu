@@ -51,7 +51,7 @@ function renderIndex(res, name){
 	});
 }
 
-function renderQuery(res,name){
+function renderQuery(res,name，phone){
 	var query = new AV.Query(Visitor);
 	query.skip(0);
 	query.limit(10000);
@@ -66,8 +66,7 @@ function renderQuery(res,name){
 		}
 	});
 }
-
-function renderSuccess(res,name){
+function renderSuccess(res,nam,phone){
 	var query = new AV.Query(Visitor);
 	query.skip(0);
 	query.limit(10000);
