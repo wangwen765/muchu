@@ -18,36 +18,23 @@
 
 <div class="detail-list">
 	<div class="toptitle">
-    	<div class="shopclass">在日华人信息招聘数据列表</div>
+    	<div class="shopclass">疯狂记事本</div>
     </div>
     <ul class="shoplist">
 		<% if (visitors){ %>
 		<%  visitors.forEach(function (visitor){ %>
 		<li>
-		  <p>姓名：&nbsp <%= visitor.get('name') %> </p>
-		  <p>年龄：&nbsp <%= visitor.get('age') %> </p>
-		  <p>地域：&nbsp <%= visitor.get('area') %> </p>
-		  <p>手机：&nbsp <%= visitor.get('phone') %> </p>
-		  <p>微信：&nbsp <%= visitor.get('weixin') %> </p>
-		  <p>邮箱：&nbsp <%= visitor.get('email') %> </p>
-		  <p>留日资格：&nbsp <%= visitor.get('studyStatus') %> </p>
-		  <p>驾驶证：&nbsp <%= visitor.get('license') %> </p>
-		  <p>有无汽车：&nbsp <%= visitor.get('haveCar') %> </p>
-		  <p>应聘职位：&nbsp <%= visitor.get('fulltime') %> </p>
-		  <p>应聘时间：&nbsp <%= visitor.get('createdAt')%> </p>
+		  <p>标题：&nbsp <%= visitor.get('name') %> </p>
+		  <p>内容：&nbsp <%= visitor.get('age') %> </p>
+
 		</li>
 		<% })
 		   } %>
 	  </ul>
-    <div class="shop-page">
-    	<span class="pages"><a href="#">首页</a></span>
-        <span class="pages"><a href="#">上一页</a></span>
-        <span class="pages"><a href="#">下一页</a></span>
-        <span class="pages"><a href="#">尾页</a></span>
-    </div>
+
 </div>
 
-<div class="copyright">CopyRight 2015  创思维力，All rights reserved.</div>
+<div class="copyright">CopyRight 2015 小忄，All rights reserved.</div>
 <div class="copyright"></div>
 
 	</div>
