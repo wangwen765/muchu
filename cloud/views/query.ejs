@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="format-detection" content="telephone=no">
-<title>息</title>
+<title>疯狂记事本</title>
 <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
 <link href="stylesheets/iscroll.css" rel="stylesheet" type="text/css" />
 
@@ -24,7 +24,7 @@
 		<li>
 		  <p>标题：&nbsp <%= visitor.get('name') %> </p>
 		  <p>内容：&nbsp <%= visitor.get('phone') %> </p>
-
+			<p>创建时间：&nbsp <%= visitor.get('createdAT') %> </p>
 		</li>
 		<% })
 		   } %>
