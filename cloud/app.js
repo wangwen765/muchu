@@ -51,7 +51,7 @@ function renderIndex(res, name){
 	});
 }
 
-function renderQuery(res,name，phone){
+function renderQuery(res,name,phone){
 	var query = new AV.Query(Visitor);
 	query.skip(0);
 	query.limit(10000);
