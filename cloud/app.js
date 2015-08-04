@@ -58,7 +58,7 @@ function renderQuery(res,name){
 	query.descending('createdAt');
 	query.find({
 		success: function(results){
-			res.render('query',{ name: name,phone:phone: results});
+			res.render('query',{ name: name,phone:phone,visitors: results});
 		},
 		error: function(error){
 			console.log(error);
@@ -74,7 +74,7 @@ function renderSuccess(res,name){
 	query.descending('createdAt');
 	query.find({
 		success: function(results){
-			res.render('success',{ name: name,phone:phone: results});
+			res.render('success',{ name: name,phone:phone,visitors: results});
 		},
 		error: function(error){
 			console.log(error);
