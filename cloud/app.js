@@ -51,14 +51,14 @@ function renderIndex(res, name){
 	});
 }
 
-function renderQuery(res,name,phone,CreatedAT){
+function renderQuery(res,name,phone){
 	var query = new AV.Query(Visitor);
 	query.skip(0);
 	query.limit(10000);
 	query.descending('createdAt');
 	query.find({
 		success: function(results){
-			res.render('query',{ name: name,phone:phone,CreatedAT:CreatedAT,visitors: results});
+			res.render('query',{ name: name,phone:phone,visitors: results});
 		},
 		error: function(error){
 			console.log(error);
@@ -128,8 +128,7 @@ function sendTickets(name,phone,start,end,date,backdate,adults,child,email){
 app.get('/query',function(req,res){
 	var name=req.query.name;
 	var phone=req.query.phone;
-	var CreatedAT=req.query.CratedAT;
-	renderQuery(res,name,phone,CreatedAT);
+	renderQuery(res,name,phone);
 });
 
 app.get('/', function(req, res){
